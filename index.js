@@ -3,7 +3,6 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import OpenAI from "openai";
-import { createLogger } from "vite";
 
 dotenv.config();
 
