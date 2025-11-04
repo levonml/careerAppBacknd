@@ -3,10 +3,17 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import OpenAI from "openai";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
 const app = express();
+app.use(express.static(path.join(__dirname, "dist")));
+
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
@@ -166,7 +173,7 @@ export default generatePrompt;
 // API endpoint
 app.post("/api/analyze", async (req, res) => {
     const userData = req.body;
-    console.log(">>>>> button pressed")
+    console.log(">>>>> button pressed", userData)
     const prompt = generatePrompt(userData);
     //console.log(">>>>> generate prompt", userData)
     try {
