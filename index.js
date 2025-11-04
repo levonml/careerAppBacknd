@@ -173,7 +173,7 @@ export default generatePrompt;
 // API endpoint
 app.post("/api/analyze", async (req, res) => {
     const userData = req.body;
-    console.log(">>>>> button pressed", userData)
+    //console.log(">>>>> button pressed", userData)
     const prompt = generatePrompt(userData);
     //console.log(">>>>> generate prompt", userData)
     try {
@@ -187,7 +187,7 @@ app.post("/api/analyze", async (req, res) => {
         });
 
         const result = completion.choices[0].message.content;
-        console.log(">>>>> reult", result)
+        //console.log(">>>>> reult", result)
         res.json({ result });
     } catch (error) {
         console.error("Error from GPT:", error);
