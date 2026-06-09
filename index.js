@@ -13,7 +13,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.static(path.join(__dirname, "dist")));
-
+console.log("DEPLOY TEST 2026-06-09");
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
