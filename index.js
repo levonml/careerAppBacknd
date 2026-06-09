@@ -19,8 +19,11 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+if (!process.env.OPENAI_API_KEY) {
+    console.warn("Warning: OPENAI_API_KEY is not set in .env. App will work with limited functionality.");
+}
 const client = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY || "fake-api-key-for-dev", // Use a fake key in development to avoid errors
 });
 
 // Helper: generate prompt for GPT
